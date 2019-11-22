@@ -1,0 +1,31 @@
+{
+  "$type": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[DHI.Services.IConnection, DHI.Services]], mscorlib",
+  "Logger": {
+    "$type": "DHI.Services.WebApi.LogServiceConnection, DHI.Services.WebApi",
+    "ConnectionString": "Server=localhost;Port=5432;Database=ChemRegulator;User Id=postgres;Password=Solutions!",
+    "LogRepositoryType": "DHI.Services.Provider.PostgreSQL.Logger, DHI.Services.Provider.PostgreSQL",
+    "Name": "Log service connection",
+    "Id": "Logger"
+  },
+  "Accounts": {
+    "$type": "DHI.Services.WebApi.AccountServiceConnection, DHI.Services.WebApi",
+    "ConnectionString": "Server=localhost;Port=5432;Database=ChemRegulator;User Id=postgres;Password=Solutions!",
+    "RepositoryType": "DHI.Services.Provider.PostgreSQL.AccountRepository, DHI.Services.Provider.PostgreSQL",
+    "Name": "Accounts service connection",
+    "Id": "Accounts"
+  },
+  "Authentication": {
+    "$type": "DHI.Services.WebApi.AuthenticationServiceConnection, DHI.Services.WebApi",
+    "ConnectionString": "Server=localhost;Port=5432;Database=ChemRegulator;User Id=postgres;Password=Solutions!",
+    "AuthenticationProviderType": "DHI.Services.Provider.PostgreSQL.AccountRepository, DHI.Services.Provider.PostgreSQL",
+    "Name": "Authentication service connection",
+    "Id": "Authentication"
+  },
+  "RefreshTokens": {
+    "$type": "DHI.Services.WebApi.RefreshTokenServiceConnection, DHI.Services.WebApi",
+    "ConnectionString": "Server=localhost;Port=5432;Database=ChemRegulator;User Id=postgres;Password=Solutions!",
+    "RepositoryType": "DHI.Services.Provider.PostgreSQL.RefreshTokenRepository, DHI.Services.Provider.PostgreSQL",
+    "Name": "Refresh token service connection",
+    "Id": "RefreshTokens"
+  }
+}
