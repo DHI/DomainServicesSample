@@ -22,11 +22,15 @@ This is the original ASP.NET Core project from the Domain Services Web API proje
 
 The MyEntityController contains a number of very short public methods (actions) that essentially redirect the job to the underlying `MyEntityService`.
 
-The Domain Services artifacts - for example the `AuthenticationService` - are configured using the Domain Services own Connections API (or directly in the `connections.json` file). However, the custom MyEntityService is configured in code using the built-in Dependency Injection (DI) capabilities of ASP.NET Core. This is done in the `ConfigureServices` method of the `Starup.cs` file: 
+The Domain Services artifacts - for example the `AuthenticationService` - are configured using the Domain Services own Connections API (or directly in the `connections.json` file). However, the custom MyEntityService is configured in code using the built-in Dependency Injection (DI) capabilities of ASP.NET Core. This is done in the `ConfigureServices` method of the `Startup.cs` file: 
 
 ```c#
-services.AddSingleton<IMyEntityRepository, MyEntityRepository>();
+services.AddSingleton<IMyEntityRepository, FakeMyEntityRepository>();
 ```
+
+## ChemRegulator.WebApi.Test
+
+This projects contains the integration tests for the ChemRegulator Web API. The project uses the xUnit.NET test framework and the `Microsoft.AspNetCore.Mvc.Testing` package.
 
 ## Running
 

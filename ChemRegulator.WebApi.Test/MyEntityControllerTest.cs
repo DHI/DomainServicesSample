@@ -1,6 +1,7 @@
 ﻿namespace ChemRegulator.WebApi.Test
 {
     using System;
+    using System.Collections.Generic;
     using System.Net;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -38,9 +39,81 @@
         [Fact]
         public async Task GetAllIsOk()
         {
-            var response = await _client.GetAsync($"api/myentities");
+            var response = await _client.GetAsync("api/myentities");
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             var json = await response.Content.ReadAsStringAsync();
+            var entities = JsonConvert.DeserializeObject<IEnumerable<MyEntity>>(json);
+            Assert.Empty(entities);
+        }
+
+        [Fact]
+        public async Task GetByQueryStringIsOk()
+        {
+            // Add
+            var request = new
+            {
+                Url = "/api/myentities",
+                Body = new MyEntityDTO
+                {
+                    Name = "Entity1",
+                    Foo = "Foo1"
+                }
+            };
+
+            var response = await _client.PostAsync(request.Url, ContentHelper.GetStringContent(request.Body));
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+            var json = await response.Content.ReadAsStringAsync();
+            var myEntity = JsonConvert.DeserializeObject<MyEntity>(json);
+
+            // Query
+            response = await _client.GetAsync("api/myentities?Name=Entity1");
+            json = await response.Content.ReadAsStringAsync();
+            var entities = JsonConvert.DeserializeObject<IEnumerable<MyEntity>>(json);
+            Assert.Single(entities);
+
+            // Delete
+            response = await _client.DeleteAsync($"{request.Url}/{myEntity.Id}");
+            Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task PostQueryIsOk()
+        {
+            // Add
+            var request = new
+            {
+                Url = "/api/myentities",
+                Body = new MyEntityDTO
+                {
+                    Name = "Entity1",
+                    Foo = "Foo1"
+                }
+            };
+
+            var response = await _client.PostAsync(request.Url, ContentHelper.GetStringContent(request.Body));
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+            var json = await response.Content.ReadAsStringAsync();
+            var myEntity = JsonConvert.DeserializeObject<MyEntity>(json);
+
+            // Query
+            var queryRequest = new
+            {
+                Url = "api/myentities/query",
+                Body = new List<object>
+                {
+                    new {Item = "Name", QueryOperator = "Equal", Value = "Entity1"}
+                }
+            };
+
+            response = await _client.PostAsync(queryRequest.Url, ContentHelper.GetStringContent(queryRequest.Body));
+            json = await response.Content.ReadAsStringAsync();
+            var entities = JsonConvert.DeserializeObject<IEnumerable<MyEntity>>(json);
+            Assert.Single(entities);
+
+            // Delete
+            response = await _client.DeleteAsync($"{request.Url}/{myEntity.Id}");
+            Assert.Equal(HttpStatusCode.NoContent, response.StatusCode);
+
         }
 
         [Fact]
@@ -48,8 +121,8 @@
         {
             var request = new
             {
-                Url = $"/api/myentities",
-                Body = new MyEntityDTO()
+                Url = "/api/myentities",
+                Body = new MyEntityDTO
                 {
                     Name = "Entity1",
                     Foo = "Foo1"

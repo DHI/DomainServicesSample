@@ -129,7 +129,7 @@
             });
 
             // ChemRegulator services
-            services.AddSingleton<IMyEntityRepository, MyEntityRepository>();
+            services.AddSingleton<IMyEntityRepository, FakeMyEntityRepository>();
         }
 
         public virtual void Configure(IApplicationBuilder app, IHostingEnvironment env)
