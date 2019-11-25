@@ -3,9 +3,9 @@ A sample Domain Services Web API project extended with a custom controller using
 
 ## Introduction
 
-The purpose of this repository is to complement the Domain Services project templates and serve as a starter kit for new Domain Services based Web API solutions. It is meant to illustrate a solution structure where you use Domain Services core - the `DHI.Services` NuGet package - as a framework for creating your own custom services and controllers. 
+The purpose of this repository is to complement the Domain Services project templates and serve as a starter kit for new Domain Services based Web API solutions. It is meant to illustrate a solution structure where you use the Domain Services core - the `DHI.Services` NuGet package - as a framework for creating your own custom services and controllers. 
 
-The solution contains an ASP.NET Core project based on the Domain Services Web API project template that comes with out-of-the-box functionality for user account management, authentication, logging etc. from the `DHI.Services.WebApi` NuGet package, but it is extended with a custom controller `MyEntityController` with CRUD functionality for a ficticious entity called `MyEntity`. In a real application the entity could be for example Product, Order, Campaign or similar.
+The solution contains an ASP.NET Core project based on the Domain Services Web API project template that comes with out-of-the-box functionality for user account management, authentication, logging etc. from the `DHI.Services.WebApi` NuGet package, but it is extended with a custom controller `MyEntityController` with CRUD functionality for a ficticious entity called `MyEntity`. In a real application the entity could be for example a Product, Order, Campaign or similar entity.
 
 ## ChemRegulator
 The ChemRegulator project contains the definition of the the object model and service types, for example `MyEntityService`. These are all pure .NET types - so called POCOs (Plain Old CLR objects).
@@ -22,7 +22,7 @@ This is the original ASP.NET Core project from the Domain Services Web API proje
 
 The MyEntityController contains a number of very short public methods (actions) that essentially redirect the job to the underlying `MyEntityService`.
 
-The Domain Services artifacts, for example the `AuthenticationService`, are configured using the Domain Services own Connections API (or by direct modifications in the `connections.json` file). However, the custom MyEntityService is configured in code using the built-in Dependency Injection (DI) capabilities of ASP.NET Core. This is done in the `ConfigureServices` method of the `Startup.cs` file: 
+The Domain Services artifacts, for example the `AuthenticationService`, are configured using the Domain Services' own Connections API (or by direct modifications in the `connections.json` file). However, the custom MyEntityService is configured in code using the built-in Dependency Injection (DI) capabilities of ASP.NET Core. This is done in the `ConfigureServices` method of the `Startup.cs` file: 
 
 ```c#
 services.AddSingleton<IMyEntityRepository, FakeMyEntityRepository>();
