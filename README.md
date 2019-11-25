@@ -22,7 +22,7 @@ This is the original ASP.NET Core project from the Domain Services Web API proje
 
 The MyEntityController contains a number of very short public methods (actions) that essentially redirect the job to the underlying `MyEntityService`.
 
-The Domain Services artifacts - for example the `AuthenticationService` - are configured using the Domain Services own Connections API (or directly in the `connections.json` file). However, the custom MyEntityService is configured in code using the built-in Dependency Injection (DI) capabilities of ASP.NET Core. This is done in the `ConfigureServices` method of the `Startup.cs` file: 
+The Domain Services artifacts, for example the `AuthenticationService`, are configured using the Domain Services own Connections API (or by direct modifications in the `connections.json` file). However, the custom MyEntityService is configured in code using the built-in Dependency Injection (DI) capabilities of ASP.NET Core. This is done in the `ConfigureServices` method of the `Startup.cs` file: 
 
 ```c#
 services.AddSingleton<IMyEntityRepository, FakeMyEntityRepository>();
