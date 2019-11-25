@@ -5,7 +5,7 @@ A sample Domain Services Web API project extended with a custom controller using
 
 The purpose of this repository is to complement the Domain Services project templates and serve as a starter kit for new Domain Services based Web API solutions. It is meant to illustrate a solution structure where you use Domain Services core - the `DHI.Services` NuGet package - as a framework for creating your own custom services and controllers. 
 
-The solution contains an ASP.NET Core project based on the Domain Services Web API project template that comes with out-of-the-box functionality for user account management, authentication, logging etc. from the `DHI.Services.WebApi` NuGet package, but it is extended with a custom controller `MyEntityController` with CRUD functionality for a ficticious entity called `MyEntity`. In a real application the entity could be for example Project, Order, Campaign or similar.
+The solution contains an ASP.NET Core project based on the Domain Services Web API project template that comes with out-of-the-box functionality for user account management, authentication, logging etc. from the `DHI.Services.WebApi` NuGet package, but it is extended with a custom controller `MyEntityController` with CRUD functionality for a ficticious entity called `MyEntity`. In a real application the entity could be for example Product, Order, Campaign or similar.
 
 ## ChemRegulator
 The ChemRegulator project contains the definition of the the object model and service types, for example `MyEntityService`. These are all pure .NET types - so called POCOs (Plain Old CLR objects).
@@ -34,8 +34,8 @@ This projects contains the integration tests for the ChemRegulator Web API. The 
 
 ## Running
 
-The solution is configured to use the PostgreSQL provider for storage.
+The solution is configured to use the PostgreSQL provider (the `DHI.Services.PostgreSQL` package) for storage.
 
-To run you need to install PostgreSQL locally, create a database and configure the connections in `connections.json` with a valid PostgreSQL connection string. 
+To run this project, you need to install PostgreSQL locally, create a database and configure the connections in `connections.json` with a valid PostgreSQL connection string. 
 
 
