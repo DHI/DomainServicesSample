@@ -10,7 +10,7 @@ The solution contains an ASP.NET Core project based on the Domain Services Web A
 ## ChemRegulator
 The ChemRegulator project contains the definition of the the object model and service types, for example `MyEntityService`. These are all pure .NET types - so called POCOs (Plain Old CLR objects).
 
-This way the Web API itself - the controller - can be implemented as a very lean layer, essentially as a kind of façade exposing the pure .NET services over HTTP.  
+This approach has several advanteges, for example that you can easily unit test `MyEntityService` and other types in the POCO project. Furthermore, the Web API itself - the controller - can be implemented as a very lean layer, essentially as a kind of façade exposing the pure .NET services over HTTP.
 
 ## ChemRegulator.Test
 
@@ -27,6 +27,7 @@ The Domain Services artifacts, for example the `AuthenticationService`, are conf
 ```c#
 services.AddSingleton<IMyEntityRepository, FakeMyEntityRepository>();
 ```
+The MyEntityService is configured to use a fake in-memory repository. In a real project, this should of course be replaced with for example a PostgreSQL repository or similar.
 
 ## ChemRegulator.WebApi.Test
 
@@ -34,6 +35,6 @@ This projects contains the integration tests for the ChemRegulator Web API. The 
 
 ## Running
 
-The solution is configured to use the PostgreSQL provider (the `DHI.Services.PostgreSQL` package) for storage.
+The solution is configured to use the PostgreSQL provider (the `DHI.Services.PostgreSQL` package) for storage of user accounts and other Domain Services entities.
 
 To run this project, you need to install PostgreSQL locally, create a database and configure the connections in `connections.json` with a valid PostgreSQL connection string.
