@@ -10,7 +10,7 @@ The solution contains an ASP.NET Core project based on the Domain Services Web A
 ## ChemRegulator
 The ChemRegulator project contains the definition of the the object model and service types, for example `MyEntityService`. These are all pure .NET types - so called POCOs (Plain Old CLR objects).
 
-This approach has several advanteges, for example that you can easily unit test `MyEntityService` and other types in the POCO project. Furthermore, the Web API itself - the controller - can be implemented as a very lean layer, essentially as a kind of façade exposing the pure .NET services over HTTP.
+This approach has several advantages, for example that you can easily unit test `MyEntityService` and other types in the POCO project. Furthermore, the Web API itself - the controller - can be implemented as a very lean layer, essentially as a kind of façade exposing the pure .NET services over HTTP.
 
 ## ChemRegulator.Test
 
