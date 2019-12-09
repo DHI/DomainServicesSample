@@ -1,5 +1,5 @@
-# Domain Services Sample ![DS logo](http://www.mikepoweredbydhi.com/upload/nuget-icons/domain-services-icon32x32.png)
-A sample Domain Services Web API project extended with a custom controller using the same componentized, loosely-coupled, dependency-inverted architecture as the Domain Services itself.
+# DHI Domain Services Sample ![DS logo](http://www.mikepoweredbydhi.com/upload/nuget-icons/domain-services-icon32x32.png)
+A sample Domain Services Web API project extended with a custom controller using the same componentized, loosely-coupled, dependency-inverted architecture as the DHI Domain Services themselves.
 
 ## Introduction
 
@@ -18,7 +18,7 @@ This projects contains the unit tests for the ChemRegulator types. The project u
 
 ## ChemRegulator.WebApi
 
-This is the original ASP.NET Core project from the Domain Services Web API project template. However, it is extended with the custom `MyEntityController` class.
+This is the original ASP.NET Core 2.2 project from the Domain Services Web API project template. However, it is extended with the custom `MyEntityController` class.
 
 The MyEntityController contains a number of very short public methods (actions) that essentially redirect the job to the underlying `MyEntityService`.
 
