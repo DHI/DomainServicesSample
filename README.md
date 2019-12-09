@@ -1,5 +1,5 @@
 # DHI Domain Services Sample ![DS logo](http://www.mikepoweredbydhi.com/upload/nuget-icons/domain-services-icon32x32.png)
-A sample Domain Services Web API project extended with a custom controller using the same componentized, loosely-coupled, dependency-inverted architecture as the DHI Domain Services themselves.
+A sample Domain Services Web API project extended with a custom controller using the same componentized, loosely-coupled, dependency-inverted architecture as the Domain Services themselves.
 
 ## Introduction
 
